@@ -17,4 +17,3 @@ def zero_pass(start: int, instructions: list[int]) -> list[int]:
 with open('output', 'w') as output:
     output.write( str(zero_end(50, instructions)) + '\n')
     output.write( str(zero_pass(50, instructions)) + '\n')
-    pass
