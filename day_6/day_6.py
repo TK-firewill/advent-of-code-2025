@@ -19,7 +19,7 @@ def parse_columns_cephalopod(numbers: list[str], operations: list[str]) -> list[
 	numbers: list[tuple[str, ...]] = zip(*numbers)
 	numbers: list[str] = map(''.join, numbers)
 	numbers: list[tuple[re.Match, str]] = groupby(numbers, lambda x: re.match(r'^ +$', x))
-	numbers: list[tuple[re.Match, str]] = [list(group) for empty, group in numbers if not empty]
+	numbers: list[list[str]] = [list(group) for empty, group in numbers if not empty]
 	numbers: list[list[int]] = [[int(n.strip(' ')) for n in problem] for problem in numbers]
 	operations: list[Callable] = [add if op == '+' else mul for op in re.findall(r'(\+|\*)', operations)]
 	return list(zip(numbers, operations))
